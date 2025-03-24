@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Waste Prediction</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        input, button { margin: 10px; padding: 8px; }
+    </style>
+</head>
+<body>
+    <h2>Predict Food Waste</h2>
+    
+    <form action="/predict" method="post">
+        <label for="population">Population (Million):</label>
+        <input type="number" name="population" step="any" required><br>
+
+        <label for="economic_loss">Economic Loss (Million $):</label>
+        <input type="number" name="economic_loss" step="any" required><br>
+
+        <label for="avg_waste_per_capita">Avg Waste per Capita (Kg):</label>
+        <input type="number" name="avg_waste_per_capita" step="any" required><br>
+
+        <label for="household_waste">Household Waste (%):</label>
+        <input type="number" name="household_waste" step="any" required><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+
+</body>
+</html>
